@@ -1,0 +1,147 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MODE_LINKS
+{
+    public partial class Tecnicos : Form
+    {
+        Tecnico tecnico = new Tecnico();
+
+        private const int EM_SETCUEBANNER = 0x1501;
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
+
+        [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, PreserveSig = false)]
+        internal static extern void DwmSetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE attribute, ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute, uint cbAttribute);
+        public Tecnicos()
+        {
+            InitializeComponent();
+            var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
+            var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+            DwmSetWindowAttribute(this.Handle, attribute, ref preference, sizeof(uint));
+            SendMessage(txbIDTecnico.Handle, EM_SETCUEBANNER, 10, " ID Técnico");
+            SendMessage(txbDni.Handle, EM_SETCUEBANNER, 10, " DNI");
+            SendMessage(txbNombre.Handle, EM_SETCUEBANNER, 10, " Nombre");
+            SendMessage(txbApellido1.Handle, EM_SETCUEBANNER, 10, " Primer Apellido");
+            SendMessage(txbApellido2.Handle, EM_SETCUEBANNER, 10, " Segundo Apellido");
+            SendMessage(txbTelefono.Handle, EM_SETCUEBANNER, 10, " Telefono");
+            SendMessage(txbEmail.Handle, EM_SETCUEBANNER, 10, " Email");
+            SendMessage(txbContrasenya.Handle, EM_SETCUEBANNER, 10, " Contraseña");
+            SendMessage(txbTipoUsuario.Handle, EM_SETCUEBANNER, 10, " Tipo de Usuario");
+            SendMessage(txbIDVehiculo.Handle, EM_SETCUEBANNER, 10, " Vehiculo Asignado");
+        }
+
+        public enum DWMWINDOWATTRIBUTE
+        {
+            DWMWA_WINDOW_CORNER_PREFERENCE = 33
+        }
+
+        public enum DWM_WINDOW_CORNER_PREFERENCE
+        {
+            DWMWCP_DEFAULT = 0,
+            DWMWCP_DONOTROUND = 1,
+            DWMWCP_ROUND = 2,
+            DWMWCP_ROUNDSMALL = 3
+        }
+
+        private void Tecnicos_Load(object sender, EventArgs e)
+        {
+            dataGridViewTecnicos.DataSource = tecnico.conexionConLaTabla();
+        }
+
+        private void dataGridViewTecnicos_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                DataTable dt = tecnico.conexionConLaTabla();
+                txbIDTecnico.Text = dt.Rows[e.RowIndex][0].ToString();
+                txbDni.Text = dt.Rows[e.RowIndex][1].ToString();
+                txbNombre.Text = dt.Rows[e.RowIndex][2].ToString();
+                txbApellido1.Text = dt.Rows[e.RowIndex][3].ToString();
+                txbApellido2.Text = dt.Rows[e.RowIndex][4].ToString();
+                txbTelefono.Text = dt.Rows[e.RowIndex][5].ToString();
+                txbEmail.Text = dt.Rows[e.RowIndex][6].ToString();
+                txbContrasenya.Text = dt.Rows[e.RowIndex][7].ToString();
+                txbTipoUsuario.Text = dt.Rows[e.RowIndex][8].ToString();
+                txbIDVehiculo.Text = dt.Rows[e.RowIndex][9].ToString();
+                txbIDTecnico.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                limpiarPantalla();
+            }
+        }
+
+        private void btnAnyadirTecnico_Click(object sender, EventArgs e)
+        {
+            tecnico.dni = txbDni.Text;
+            tecnico.nombre = txbNombre.Text;
+            tecnico.apellido1 = txbApellido1.Text;
+            tecnico.apellido2 = txbApellido2.Text;
+            tecnico.telefono = txbTelefono.Text;
+            tecnico.email = txbEmail.Text;
+            tecnico.contrasenya = txbContrasenya.Text;
+            tecnico.tipo_usuario = txbTipoUsuario.Text;
+            tecnico.id_vehiculo = txbIDVehiculo.Text;
+            tecnico.imagen = "";
+            tecnico.agregarTecnico(tecnico);
+            refrescarTabla();
+            limpiarPantalla();
+        }
+
+        private void btnModificarTecnico_Click(object sender, EventArgs e)
+        {
+            tecnico.id_tecnico = txbIDTecnico.Text;
+            tecnico.dni = txbDni.Text;
+            tecnico.nombre = txbNombre.Text;
+            tecnico.apellido1 = txbApellido1.Text;
+            tecnico.apellido2 = txbApellido2.Text;
+            tecnico.telefono = txbTelefono.Text;
+            tecnico.email = txbEmail.Text;
+            tecnico.contrasenya = txbContrasenya.Text;
+            tecnico.tipo_usuario = txbTipoUsuario.Text;
+            tecnico.id_vehiculo = txbIDVehiculo.Text;
+            tecnico.imagen = "";
+            tecnico.modificarTecnico(tecnico);
+            refrescarTabla();
+            limpiarPantalla();
+        }
+
+        private void btnEliminarTecnico_Click(object sender, EventArgs e)
+        {
+            tecnico.id_tecnico = txbIDTecnico.Text;
+            tecnico.eliminarTecnico(tecnico);
+            refrescarTabla();
+            limpiarPantalla();
+        }
+
+        private void refrescarTabla()
+        {
+            dataGridViewTecnicos.DataSource = tecnico.conexionConLaTabla();
+        }
+
+        private void limpiarPantalla()
+        {
+            txbIDTecnico.Text = "";
+            txbDni.Text = "";
+            txbNombre.Text = "";
+            txbApellido1.Text = "";
+            txbApellido2.Text = "";
+            txbTelefono.Text = "";
+            txbEmail.Text = "";
+            txbContrasenya.Text = "";
+            txbTipoUsuario.Text = "";
+            txbIDVehiculo.Text = "";
+        }
+    }
+}

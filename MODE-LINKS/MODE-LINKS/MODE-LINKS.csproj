@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA3CA145-ACEE-464D-A3B8-6271A6D5764A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MODE_LINKS</RootNamespace>
+    <AssemblyName>MODE-LINKS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CambioContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioContraseña.Designer.cs">
+      <DependentUpon>CambioContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta.cs" />
+    <Compile Include="Herramienta.cs" />
+    <Compile Include="Herramientas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Herramientas.Designer.cs">
+      <DependentUpon>Herramientas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InicioSesion.Designer.cs">
+      <DependentUpon>InicioSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Multa.cs" />
+    <Compile Include="Multas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Multas.Designer.cs">
+      <DependentUpon>Multas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelCentralLogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelCentralLogo.Designer.cs">
+      <DependentUpon>PanelCentralLogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proyecto.cs" />
+    <Compile Include="Proyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proyectos.Designer.cs">
+      <DependentUpon>Proyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico.cs" />
+    <Compile Include="Tecnicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tecnicos.Designer.cs">
+      <DependentUpon>Tecnicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trabajo.cs" />
+    <Compile Include="Trabajos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trabajos.Designer.cs">
+      <DependentUpon>Trabajos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cuentas.Designer.cs">
+      <DependentUpon>Cuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehiculo.cs" />
+    <Compile Include="Vehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehiculos.Designer.cs">
+      <DependentUpon>Vehiculos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CambioContraseña.resx">
+      <DependentUpon>CambioContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Herramientas.resx">
+      <DependentUpon>Herramientas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InicioSesion.resx">
+      <DependentUpon>InicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Multas.resx">
+      <DependentUpon>Multas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelCentralLogo.resx">
+      <DependentUpon>PanelCentralLogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Proyectos.resx">
+      <DependentUpon>Proyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tecnicos.resx">
+      <DependentUpon>Tecnicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trabajos.resx">
+      <DependentUpon>Trabajos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cuentas.resx">
+      <DependentUpon>Cuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehiculos.resx">
+      <DependentUpon>Vehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize blanco1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3D1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar contraseña.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar contraseña.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Título.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Título1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Título2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3D2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3D.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close blanco1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %285%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar contraseña1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ojotachado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar contraseña %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar contraseña %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar contraseña1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close blanco11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close blanco12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peque1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1492790945-39minimize_84242 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_117605 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1492790945-39minimize_84242 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close blanco13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %285%29 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peque11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessman1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu--v1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alinear-justificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %289%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2816%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2815%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2814%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2812%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2818%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3D3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2818%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2818%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2816%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2815%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2814%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2812%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2816%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2815%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2815%293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2816%293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2815%294.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2814%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2812%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2818%293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar contraseña11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar contraseña11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%294.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%295.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%296.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%297.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2810%298.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3D4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocultar contraseña12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar contraseña12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ad25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ad20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2819%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2819%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2819%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2819%29 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2820%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2820%29 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2819%29 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2819%29 %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2820%29 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2821%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2822%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2822%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image %2823%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Foto Perfil.png" />
+    <Content Include="Resources\photo_2022-02-03_11-45-56.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
