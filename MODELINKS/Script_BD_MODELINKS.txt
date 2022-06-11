@@ -1,0 +1,72 @@
+CREATE DATABASE BD_MODELINKS;
+
+DROP DATABASE BD_MODELINKS;
+
+
+CREATE TABLE MULTAS(
+	id_multa          smallint identity(1,1) primary key,
+	codigo_multa      varchar(20) NOT NULL,
+	dia               varchar(10) NOT NULL,
+	hora              varchar(10) NOT NULL,
+	cantidad  		  varchar(20) NOT NULL,
+	matricula 		  varchar(7) NOT NULL
+);
+
+CREATE TABLE VEHICULOS(
+	id_vehiculo       smallint identity(1,1) primary key,
+	matricula 		  varchar(7) NOT NULL,
+	marca 			  varchar(20) NOT NULL,
+	modelo 			  varchar(20) NOT NULL,
+	fecha_entrada 	  varchar(10) NOT NULL,
+	fecha_salida 	  varchar(10),
+	id_multa 		  smallint
+	CONSTRAINT FK_multa FOREIGN KEY (id_multa) REFERENCES MULTAS (id_multa)
+);
+
+CREATE TABLE TECNICOS(
+	id_tecnico 		  smallint identity(1,1) primary key,
+	dni 			  varchar(9) NOT NULL,
+	nombre 			  varchar(20) NOT NULL,
+	apellido1 		  varchar(20) NOT NULL,
+	apellido2 		  varchar(20) NOT NULL,
+	telefono 		  varchar(9) NOT NULL,
+	email 			  varchar(30) NOT NULL,
+	contrasenya 	  varchar(20) NOT NULL,
+	tipo_usuario 	  varchar(15) NOT NULL,	
+	id_vehiculo 	  smallint NOT NULL,
+	imagen 			  varchar(max)
+	CONSTRAINT FK_vehiculo_tecnico FOREIGN KEY (id_vehiculo) REFERENCES VEHICULOS (id_vehiculo)
+);
+
+CREATE TABLE PROYECTOS(
+	id_proyecto             smallint identity(1,1) primary key,
+	contrata                varchar(20) NOT NULL,
+	descripcion_proyecto    varchar(max)
+);
+
+CREATE TABLE HERRAMIENTAS(
+	id_herramienta        smallint identity(1,1) primary key,
+	marca                 varchar(20) NOT NULL,
+	tipo                  varchar(50) NOT NULL,
+	codigo                varchar(20) NOT NULL
+);
+
+CREATE TABLE TRABAJOS(
+	id_trabajo 				smallint identity(1,1) primary key,
+	id_tecnico 				smallint NOT NULL,
+	id_vehiculo 			smallint NOT NULL, 
+	id_proyecto 			smallint NOT NULL,
+	id_herramienta 			smallint,
+	descripcion_trabajo 	varchar(max)
+	CONSTRAINT FK_tecnico_trabajo FOREIGN KEY (id_tecnico) REFERENCES TECNICOS (id_tecnico),
+	CONSTRAINT FK_vehiculo_trabajo FOREIGN KEY (id_vehiculo) REFERENCES VEHICULOS (id_vehiculo),
+	CONSTRAINT FK_proyecto_trabajo FOREIGN KEY (id_proyecto) REFERENCES PROYECTOS (id_proyecto),
+	CONSTRAINT FK_herramienta_trabajo FOREIGN KEY (id_herramienta) REFERENCES HERRAMIENTAS (id_herramienta)
+);
+
+
+
+INSERT INTO VEHICULOS (matricula, marca, modelo, fecha_entrada, fecha_salida, id_multa) VALUES ('0323DCL', 'Renault', 'Trafic', '10/04/2022', null, null);
+INSERT INTO TECNICOS (dni, nombre, apellido1, apellido2, telefono, email, contrasenya, tipo_usuario, id_vehiculo) VALUES ('48563078G', 'Samuel', 'García', 'Lorca', '666543234', 'samuel@gmail.com', '48563078','Administrador', 1);
+INSERT INTO TECNICOS (dni, nombre, apellido1, apellido2, telefono, email, contrasenya, tipo_usuario, id_vehiculo) VALUES ('11111111A', 'Jose', 'Peña', 'Moratalla', '677897453', 'jose@gmail.com', '1','usuario', 1);
+INSERT INTO TECNICOS (dni, nombre, apellido1, apellido2, telefono, email, contrasenya, tipo_usuario, id_vehiculo) VALUES ('22222222A', 'Lucas', 'Vazquez', 'Caravaca', '695847364', 'lucas@gmail.com', '2','Administrador', 1);

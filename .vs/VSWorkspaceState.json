@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MODE-LINKS",
+    "\\MODE-LINKS\\MODE-LINKS"
   ],
+  "SelectedNode": "\\MODE-LINKS\\MODE-LINKS\\Principal.cs",
   "PreviewInSolutionExplorer": false
 }
